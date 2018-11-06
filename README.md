@@ -22,13 +22,15 @@ This monorepo consists of 4 projects:
 
     2.1. Create a copy of the file "appsettings.Development.example.json" and rename that copy to "appsettings.Development.json"
 
-    2.2. In Visual Studio go to SQL Server Object explorer -> SQL-Server -> (localdb)... -> databases -> right click -> add database -> fill in the name "feedbackserver"
+    2.2. Setting up the DB
+
+    - Visual Studio and LOCALDB: Go to SQL Server Object explorer -> SQL-Server -> (localdb)... -> databases -> right click -> add database -> fill in the name "feedbackserver"
+        
+    - Visual Studio Code: Generate a new MSSQL Database (eg. on Azure) and adjust the "DBConnectionString" in your newly created appsettings.Development.json:
 
     2.3. In Visual Studio open the Package-Manager-Console -> Run "Update-Database" to generate the database with its tables
 
-    2.4. Hit F5 -> check health via "localhost:3010/api/v1/healthcheck"
-
-    2.5. For authentication and authorization you'll need some settings of your auth0 account, please adjust the following part in your newly created appsettings.Development.json:
+    2.4. For authentication and authorization you'll need some settings of your auth0 account, please adjust the following part in your newly created appsettings.Development.json:
 
     ```
     "Auth0": {
@@ -37,11 +39,13 @@ This monorepo consists of 4 projects:
     }
     ```
 
-    2.6. In order to send emails, you could use mailgun and insert your domain and api key in all occurrences of:
+    2.5. In order to send emails, you could use mailgun and insert your domain and api key in all occurrences of:
     ```
     Email.DefaultSender = new MailgunSender("", // Mailgun Domain
                                             "" // Mailgun API Key
     ```
+
+    2.6. Hit F5 -> check health via "localhost:3010/api/v1/healthcheck"
 
 2. **feedback-server-ui:**
     - insert your settings from auth0 into the following file: src -> auth.js:
