@@ -41,13 +41,13 @@
 <script>
 import { HubConnectionBuilder } from "@aspnet/signalr";
 import Helper from "@/helper";
-import constants from "@/constants";
+import config from "@/config";
 
 export default {
   name: "home",
   mounted() {
     const connection = new HubConnectionBuilder()
-      .withUrl(constants.BASE_URL + "/hubs/newfeedback")
+      .withUrl(config.BASE_URL + "/hubs/newfeedback")
       .build();
 
     connection.on("TicketAdded", message => {

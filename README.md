@@ -25,15 +25,14 @@ This monorepo consists of 4 projects:
     2.2. Setting up the DB
 
     - Visual Studio and LOCALDB (explore it via: Server Object explorer -> SQL-Server -> (localdb)...):       
-        - open the Package-Manager-Console -> Run "Update-Database" to generate the database "feedbackserver" with its tables
+        - open "Feedback-Server.sln" 
+        - open the Package-Manager-Console -> Run "Update-Database" to generate the database "feedbackserver" with its tables (BTW: if you get an error like "The term 'Update-Database' is not recognized as the name of a cmdlet..." take a look at https://stackoverflow.com/questions/9674983/the-term-update-database-is-not-recognized-as-the-name-of-a-cmdlet)
         
     - Visual Studio Code: 
         - Generate a new MSSQL database (eg. on Azure) and adjust the "DBConnectionString" in your newly created "appsettings.Development.json" to point to the database
-        - go to folder "Feedback-Server" and run "dotnet ef database update" in that folder
+        - go to subfolder "Feedback-Server" and run "dotnet ef database update" in that folder    
 
-    2.3.  In Visual Studio open the Package-Manager-Console -> Run "Update-Database" to generate the database with its tables
-
-    2.4. For authentication and authorization you'll need some settings of your auth0 account, please adjust the following part in your newly created appsettings.Development.json:
+    2.3. For authentication and authorization you'll need some settings of your auth0 account, please adjust the following part in your newly created appsettings.Development.json:
 
     ```
     "Auth0": {
@@ -42,26 +41,26 @@ This monorepo consists of 4 projects:
     }
     ```
 
-    2.5. In order to send emails, you could use mailgun and insert your domain and api key in all occurrences of:
+    2.4. In order to send emails, you could use mailgun and insert your domain and api key in all occurrences of:
     ```
     Email.DefaultSender = new MailgunSender("", // Mailgun Domain
                                             "" // Mailgun API Key
     ```
 
-    2.6. Hit F5 -> check health via "localhost:3010/api/v1/healthcheck" and let the Web-API up and running
+    2.5. Hit F5 -> check health via "localhost:3010/api/v1/healthcheck" and let the Web-API up and running
 
 2. **feedback-server-ui:**
-    - insert your settings from auth0 into the following file: src -> auth.js:
+    - Create a copy of the file "config.example.js" and rename that copy to "config.js"
+    - open "config.js" and insert your settings from your auth0 account above:
 
         ```
-        let webAuth = new auth0.WebAuth({
-            domain: '???.auth0.com',
-            clientID: '???',
-            redirectUri: 'localhost:8080/callback',
-            audience: '???',
-            responseType: 'token id_token',
-            scope: 'openid email'
-        })
+        export default {
+            BASE_URL: "http://localhost:3010",
+            AUTH0_DOMAIN: '', // <-- your auth0 domain
+            AUTH0_CLIENTID: '', // <-- your clientid of the auth0 Single Page Application
+            AUTH0_REDIRECT_URI: 'http://localhost:8080/callback',
+            AUTH0_AUDIENCE: '' // <-- your auth0 api-identifier
+        }
         ```
 
     - run "npm install" once at this folder
@@ -70,7 +69,7 @@ This monorepo consists of 4 projects:
     - create a new account
     - log in with created account
     - create a new domain "localhost:8081"
-    - click on th link "0 projects"
+    - click on the link "0 projects"
     - add a new project with a name of your choice
     - the page "How to integrate your project" appears, click on one of the buttons and notice the **projectCode**, leave the website open
 
@@ -85,5 +84,6 @@ This monorepo consists of 4 projects:
     - if you adjust the .scss files, then you need to compile it to .css, for example with the Visual Studio Code extension "easy-sass"
     - **IMPORTANT:** Now open the file public -> index.html -> scroll to end and replace the projectCode with the one mentioned above
     - do the same with index_div.html and index_queryparam.html
+    - **Alternative:** do not change the three html-files, instead open the database, open the Projects table and change the projectCode of the existing project to "c7cab317-4968-2ab6-202c-3040d5f71426"
     - run "npm run dev" for developing, there is a watcher that listens for changes in feedback-client-module code
     - now you should be able to create new feedback at the webpage "localhost:8081"

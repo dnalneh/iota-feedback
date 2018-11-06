@@ -6,13 +6,13 @@ import BootstrapVue from 'bootstrap-vue'
 import VeeValidate from 'vee-validate'
 import auth from '@/auth'
 import axios from 'axios'
-import constants from './constants'
+import config from './config'
 
 const veeValidateconfig = {
   fieldsBagName: 'felder'
 };
 
-const API_SERVER_DOMAIN = constants.BASE_URL + '/api/v1.0/'
+const API_SERVER_DOMAIN = config.BASE_URL + '/api/v1.0/'
 axios.defaults.baseURL = API_SERVER_DOMAIN;
 axios.defaults.validateStatus = function (status) {
   return true; // never reject (==fire catch), no matter which status code

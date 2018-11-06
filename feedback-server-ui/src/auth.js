@@ -1,11 +1,12 @@
 import auth0 from 'auth0-js'
 import Vue from 'vue'
+import config from "@/config";
 
 let webAuth = new auth0.WebAuth({
-    domain: '???.auth0.com',
-    clientID: '???',
-    redirectUri: 'http://localhost:8080/callback',
-    audience: '???',
+    domain: config.AUTH0_DOMAIN,
+    clientID: config.AUTH0_CLIENTID,
+    redirectUri: config.AUTH0_REDIRECT_URI,
+    audience: config.AUTH0_AUDIENCE,
     responseType: 'token id_token',
     scope: 'openid email'
 })
