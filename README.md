@@ -24,11 +24,14 @@ This monorepo consists of 4 projects:
 
     2.2. Setting up the DB
 
-    - Visual Studio and LOCALDB: Go to SQL Server Object explorer -> SQL-Server -> (localdb)... -> databases -> right click -> add database -> fill in the name "feedbackserver"
+    - Visual Studio and LOCALDB (explore it via: Server Object explorer -> SQL-Server -> (localdb)...):       
+        - open the Package-Manager-Console -> Run "Update-Database" to generate the database "feedbackserver" with its tables
         
-    - Visual Studio Code: Generate a new MSSQL Database (eg. on Azure) and adjust the "DBConnectionString" in your newly created appsettings.Development.json:
+    - Visual Studio Code: 
+        - Generate a new MSSQL database (eg. on Azure) and adjust the "DBConnectionString" in your newly created "appsettings.Development.json" to point to the database
+        - go to folder "Feedback-Server" and run "dotnet ef database update" in that folder
 
-    2.3. In Visual Studio open the Package-Manager-Console -> Run "Update-Database" to generate the database with its tables
+    2.3.  In Visual Studio open the Package-Manager-Console -> Run "Update-Database" to generate the database with its tables
 
     2.4. For authentication and authorization you'll need some settings of your auth0 account, please adjust the following part in your newly created appsettings.Development.json:
 
@@ -45,7 +48,7 @@ This monorepo consists of 4 projects:
                                             "" // Mailgun API Key
     ```
 
-    2.6. Hit F5 -> check health via "localhost:3010/api/v1/healthcheck"
+    2.6. Hit F5 -> check health via "localhost:3010/api/v1/healthcheck" and let the Web-API up and running
 
 2. **feedback-server-ui:**
     - insert your settings from auth0 into the following file: src -> auth.js:
@@ -67,6 +70,7 @@ This monorepo consists of 4 projects:
     - create a new account
     - log in with created account
     - create a new domain "localhost:8081"
+    - click on th link "0 projects"
     - add a new project with a name of your choice
     - the page "How to integrate your project" appears, click on one of the buttons and notice the **projectCode**, leave the website open
 
@@ -79,7 +83,7 @@ This monorepo consists of 4 projects:
     - run "npm install" once at this folder
     - chrome is the default browser that has to be installed, but you can change the browser in the package.json file
     - if you adjust the .scss files, then you need to compile it to .css, for example with the Visual Studio Code extension "easy-sass"
-    - open the file public -> index.html -> scroll to end and replace the projectCode with the one mentioned above
+    - **IMPORTANT:** Now open the file public -> index.html -> scroll to end and replace the projectCode with the one mentioned above
     - do the same with index_div.html and index_queryparam.html
-    - run "npm run dev" for developing
+    - run "npm run dev" for developing, there is a watcher that listens for changes in feedback-client-module code
     - now you should be able to create new feedback at the webpage "localhost:8081"
