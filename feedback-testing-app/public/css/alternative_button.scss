@@ -1,0 +1,95 @@
+[data-fm-area-name="More listings"] {
+    position: relative; // wichtig für innenliegendes div, es geht auch relative
+    box-sizing: border-box; // wichtig für das Anzeigen des Rahmens nach innen
+    /* 1. direktes Item in diesem Bereich */
+    //&>[data-fm-area-item-title]:nth-child(1) {
+    &>[data-fm-area-item-title="round and blue button"] {
+
+        .more_listing {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin: 84px 0px;
+        }
+
+        .more_listing_btn {
+            background-color: rgb(115, 162, 223);
+            text-decoration: none;
+            padding: 20px 40px;
+            border: 2px solid #bfd9f1;
+            border-radius: 30px;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            -o-border-radius: 30px;
+            color: #afcbe6;
+            font-family: "lato-regular", Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+
+            transition: all .2s linear;
+            -webkit-transition: all .2s linear;
+            -moz-transition: all .2s linear;
+            -o-transition: all .2s linear;
+
+            &:hover {
+                color: #a0c3e5;
+                border: 2px solid #a0c3e5;
+            }
+        }
+    }
+
+    /* 2. direktes Item in diesem Bereich */
+    &>[data-fm-area-item-title]:nth-child(2) {
+        display: none;
+
+        .more_listing {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin: 84px 0px;
+        }
+
+        .more_listing_btn {
+            background-color: rgb(190, 216, 246);
+            text-decoration: none;
+            padding: 40px 30px;
+            color: #3e87cc;
+            font-family: "Yatra One", Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            letter-spacing: 1px;
+            text-align: center;
+
+            &:hover {
+                color: #142331;
+                border: 2px solid #a0c3e5;
+            }
+        }
+    }
+
+    /* 3. direktes Item in diesem Bereich */
+    &>[data-fm-area-item-title]:nth-child(3) {
+        display: none;
+
+        padding: 60px 0;
+        height: 60px;
+        text-align: center;
+
+        .more_listing_link {
+            text-decoration: underline;
+            padding: 10px 20px;
+            color: #2f78bb;
+            font-family: "Yatra One", Helvetica, Arial, sans-serif;
+            font-size: 32px;
+            letter-spacing: 1px;
+
+            &:hover {
+                color: #000000;
+                border: 2px solid #a0c3e5;
+                font-size: 40px;
+                transition: all .9s;
+            }
+        }
+    }
+}

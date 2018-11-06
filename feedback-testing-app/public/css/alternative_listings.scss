@@ -1,0 +1,210 @@
+[data-fm-area-name="Listings"] {
+    position: relative; // wichtig für innenliegendes div, es geht auch absolute
+    box-sizing: border-box;
+    display: block;
+    padding: 10px;
+
+    /* 1. direktes Item in diesem Bereich */
+    &>[data-fm-area-item-title]:nth-child(1) {
+        display: none;
+
+        ul.properties_list {
+            list-style-type: none;
+            white-space: nowrap;
+            overflow-x: auto;
+        }
+
+        ul.properties_list li {
+            display: inline-block;
+        }
+
+        ul.properties_list li img.property_img {
+            vertical-align: top;
+        }
+
+        ul.properties_list li .price {
+            text-align: center;
+            margin-top: 20px;
+            background: #ffffff;
+            color: #514d4d;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+
+            text-decoration: underline;
+        }
+
+        ul li .property_details {
+
+            padding: 2.941176470588235% 5.882352941176471% 4.117647058823529% 5.882352941176471%;
+            border-bottom: 1px solid #f2f1f1;
+            border-left: 1px solid #f2f1f1;
+            border-right: 1px solid #f2f1f1;
+
+            transition: all .2s linear;
+            -webkit-transition: all .2s linear;
+            -moz-transition: all .2s linear;
+            -o-transition: all .2s linear;
+        }
+
+        ul li:hover .property_details {
+            border-bottom: 1px solid #95badf;
+            border-left: 1px solid #95badf;
+            border-right: 1px solid #95badf;
+        }
+
+        ul li .property_details h1 {
+            color: #666464;
+            font-family: "lato-bold", Helvetica, Arial, sans-serif;
+            font-size: 16px !important;
+            font-weight: bold;
+            margin-bottom: 5px;
+            line-height: 28px;
+        }
+
+        ul li .property_details h1 a {
+            text-decoration: none;
+            color: #666464;
+        }
+
+        ul li .property_details h2 {
+            color: #9d9d9d;
+            font-family: "lato-regular", Helvetica, Arial, sans-serif;
+            font-size: 12px;
+            line-height: 26px;
+            font-weight: normal;
+        }
+
+        ul li .property_details .property_size {
+            color: #676767;
+        }
+    }
+
+    /* 2. direktes Item in diesem Bereich */
+    &>[data-fm-area-item-title]:nth-child(2) {
+
+        margin: 100px 20px;
+
+        ul.properties_list {
+            list-style: none;
+            overflow: hidden;
+        }
+
+        ul.properties_list li {
+            display: block;
+            width: 30.90909090909091%;
+            height: auto;
+            position: relative;
+            float: left;
+            margin: 0 3.636363636363636% 3.636363636363636% 0;
+        }
+
+        ul.properties_list li img.property_img {
+            width: 100%;
+            height: auto !important;
+            vertical-align: top;
+        }
+
+
+        ul.properties_list li .price {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 15px 20px;
+            background: #ffffff;
+            color: #514d4d;
+            font-family: "lato-bold", Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 1px;
+
+            border-radius: 2px;
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            -o-border-radius: 2px;
+        }
+
+
+        ul.properties_list li:nth-child(3n+0) {
+            margin-right: 0;
+        }
+
+        ul li .property_details {
+            width: 87.64705882352941%;
+            padding: 2.941176470588235% 5.882352941176471% 4.117647058823529% 5.882352941176471%;
+            border-bottom: 1px solid #f2f1f1;
+            border-left: 1px solid #f2f1f1;
+            border-right: 1px solid #f2f1f1;
+
+            transition: all .2s linear;
+            -webkit-transition: all .2s linear;
+            -moz-transition: all .2s linear;
+            -o-transition: all .2s linear;
+        }
+
+        ul li:hover .property_details {
+            border-bottom: 1px solid #95badf;
+            border-left: 1px solid #95badf;
+            border-right: 1px solid #95badf;
+        }
+
+        ul li .property_details h1 {
+            color: #666464;
+            font-family: "lato-bold", Helvetica, Arial, sans-serif;
+            font-size: 16px !important;
+            font-weight: bold;
+            margin-bottom: 5px;
+            line-height: 28px;
+        }
+
+        ul li .property_details h1 a {
+            text-decoration: none;
+            color: #666464;
+        }
+
+        ul li .property_details h2 {
+            color: #9d9d9d;
+            font-family: "lato-regular", Helvetica, Arial, sans-serif;
+            font-size: 12px;
+            line-height: 26px;
+            font-weight: normal;
+        }
+
+        ul li .property_details .property_size {
+            color: #676767;
+        }
+
+        .more_listing {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin: 84px 0 22px 0;
+        }
+
+        .more_listing_btn {
+            text-decoration: none;
+            padding: 20px 40px;
+            border: 2px solid #bfd9f1;
+            border-radius: 30px;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            -o-border-radius: 30px;
+            color: #afcbe6;
+            font-family: "lato-regular", Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+
+            transition: all .2s linear;
+            -webkit-transition: all .2s linear;
+            -moz-transition: all .2s linear;
+            -o-transition: all .2s linear;
+        }
+
+        .more_listing_btn:hover {
+            color: #a0c3e5;
+            border: 2px solid #a0c3e5;
+        }
+    }
+}

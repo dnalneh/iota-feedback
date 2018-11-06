@@ -1,0 +1,43 @@
+{
+  "name": "feedback-client-module",
+  "version": "0.1.0",
+  "description": "",
+  "main": "",
+  "contributors": [
+    ""
+  ],
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "glob": "^7.1.3",
+    "mocha": "^5.2.0",
+    "node-sass": "^4.10.0",
+    "nodemon": "^1.18.6",
+    "npm-run-all": "^3.1.1",
+    "shx": "^0.2.2",
+    "ts-loader": "^3.5.0",
+    "tslint": "^5.11.0",
+    "typescript": "^2.9.2",
+    "webpack": "^3.12.0"
+  },
+  "scripts": {
+    "webpack:buildandpack": "./node_modules/.bin/webpack",
+    "clean:jsbuild": "shx rm -rf src/dist/js/*",
+    "watch:tsc": "nodemon --verbose -w src/ts/ --on-change-only -d 1 -e ts --exec \"npm-run-all -p clean:jsbuild webpack:buildandpack\"",
+    "build:css": "node-sass --include-path src/scss src/scss/index.scss src/dist/css/fm__styles.css --output-style compressed",
+    "deploy:static-resources": "npm run build:css",
+    "watch:static-resources": "nodemon --verbose -w src/scss/ --on-change-only -d 1 -e \"scss, css\" --exec \"npm run deploy:static-resources\"",
+    "watch": "npm-run-all -p watch:tsc watch:static-resources",
+    "test:unit": "./node_modules/mocha/bin/mocha src/js/unittests/**/*",
+    "lint:ts": "tslint --force --config src/ts/tslint.json src/ts/**/*.ts",
+    "kill": "npm-run-all -s kill:npm kill:nodemon",
+    "kill:nodemon": "pkill -f nodemon",
+    "kill:npm": "pkill -f npm",
+    "dev": "npm run watch",
+    "firstbuild": "npm-run-all build:css webpack:buildandpack"
+  },
+  "dependencies": {
+    "@types/chai": "^3.4.34",
+    "@types/mocha": "^2.2.48"
+  },
+  "license": "MIT"
+}

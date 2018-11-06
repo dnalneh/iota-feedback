@@ -1,0 +1,49 @@
+[data-fm-area-name="Headline"] {
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+  top: 50%;
+  margin-top: -105px;
+  /* 1. direktes Item in diesem Bereich */
+  /* 2. direktes Item in diesem Bereich */
+}
+
+[data-fm-area-name="Headline"] > [data-fm-area-item-title]:nth-child(1) h2 {
+  color: #555;
+  font-family: "p22_corinthia";
+  font-size: 100px;
+  font-weight: lighter;
+  margin: 0;
+  position: relative;
+  display: block;
+}
+
+[data-fm-area-name="Headline"] > [data-fm-area-item-title]:nth-child(1) h3 {
+  color: #929292;
+  font-family: "lato-regular", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  margin: -5px 0 0 25px;
+  left: 1px;
+}
+
+[data-fm-area-name="Headline"] > [data-fm-area-item-title]:nth-child(2) {
+  display: none;
+}
+
+[data-fm-area-name="Headline"] > [data-fm-area-item-title]:nth-child(2) h2 {
+  color: #00725f;
+  font-family: 'Yatra One';
+  font-size: 70px;
+  margin: 0;
+  position: relative;
+  display: block;
+}
+
+[data-fm-area-name="Headline"] > [data-fm-area-item-title]:nth-child(2) h3 {
+  color: #02522a;
+  font-family: "p22_corinthia", Helvetica, Arial, sans-serif;
+  font-size: 50px;
+  margin: 5px 0 0 25px;
+  left: 1px;
+}

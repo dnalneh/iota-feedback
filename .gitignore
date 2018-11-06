@@ -1,0 +1,13 @@
+Thumbs.db
+.vs/
+
+# in case you accidentally run npm at this level
+npm-debug.log
+node_modules/
+
+# ignore visual studio configuration
+.vscode
+
+# Silly macs
+.DS_Store
+*.swp

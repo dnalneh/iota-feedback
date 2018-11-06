@@ -1,0 +1,172 @@
+ @mixin annotationUIElement($mainFontSize, $secondFontSize, $mainwidth, $textareawidth) {
+     .fm__basediv-annotation-ui-element {
+         /* background-color: aquamarine; */
+         position: absolute;
+         width: $mainwidth;
+         font-size: $mainFontSize;
+         z-index: 2147483646 !important;
+
+         .fm__tip {
+             width: 0px;
+             height: 0px;
+             position: absolute;
+             background: transparent;
+             border: 10px solid rgb(110, 110, 110) !important;
+
+             &-up {
+                 top: -19px;
+                 left: 10px;
+                 border-right-color: transparent !important;
+                 border-left-color: transparent !important;
+                 border-top-color: transparent !important;
+             }
+             &-up-white {
+                 top: -21px;
+                 left: 10px;
+                 border: 10px solid rgb(255, 255, 255) !important;
+                 border-right-color: transparent !important;
+                 border-left-color: transparent !important;
+                 border-top-color: transparent !important;
+             }
+         }
+
+         .fm__body {
+             cursor: move;
+             display: block;
+             overflow: hidden;
+             padding: 8px;
+             background-color: #DADADA;
+             border-radius: 5px;
+             border: 2px solid rgb(110, 110, 110);
+             &.fm__sent {
+                 cursor: default !important;
+             }
+             &.fm__sent>textarea {
+                 color: grey;
+             }
+             &.fm__invisible {
+                 display: none;
+             }
+         }
+
+         .fm__body_minimized {
+             cursor: pointer;
+             display: block;
+             overflow: hidden;
+             background-color: #DADADA;
+             border-radius: 5px;
+             border: 2px solid rgb(110, 110, 110);
+             width: 36px;
+             height: 10px;
+             padding: 0px;
+
+             &.fm__invisible {
+                 display: none;
+             }
+         }
+
+         textarea {
+             min-height: 30px;
+             margin-top: 0.8em;
+             width: $textareawidth;
+             max-width: $textareawidth;
+             min-width: $textareawidth;
+             resize: both;
+             /* not supported in ie, edge*/
+         }
+
+         .fm__head {
+             cursor: inherit;
+             display: block;
+             color: black;
+             margin-top: 3px;
+             margin-left: 2px;
+         }
+
+         .fm__detailslink {
+             cursor: pointer;
+             display: inline-block;
+             font-size: 80%;
+             margin-top: 4px;
+             margin-left: 3px;
+
+             &.fm__invisible {
+                 display: none;
+             }
+         }
+
+         .fm__evaluation {
+
+             &.fm__invisible {
+                 display: none;
+             }
+
+             font-size: 0;
+             white-space: nowrap;
+             float: right;
+             width: 100px;
+             height: 20px;
+             overflow: hidden;
+             position: relative;
+             background: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjY2NjY2NjIiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=');
+             background-size: contain;
+             i {
+                 opacity: 0;
+                 position: absolute;
+                 left: 0;
+                 top: 0;
+                 height: 100%;
+                 width: 20%;
+                 z-index: 1;
+                 background: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjODg4ODg4IiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=');
+                 background-size: contain;
+             }
+
+             input {
+                 appearance: none;
+                 -moz-appearance: none;
+                 -webkit-appearance: none;
+                 opacity: 0;
+                 display: inline-block;
+                 width: 20%;
+                 height: 100%;
+                 margin: 0;
+                 padding: 0;
+                 z-index: 2;
+                 position: relative;
+
+                 &:hover+i,
+                 &:checked+i {
+                     opacity: 1;
+                 }
+             }
+
+             i~i {
+                 width: 40%;
+             }
+             i~i~i {
+                 width: 60%;
+             }
+             i~i~i~i {
+                 width: 80%;
+             }
+             i~i~i~i~i {
+                 width: 100%;
+             }
+         }
+     }
+ }
+
+ @media (max-width: 600px) {
+     @include annotationUIElement(90%,
+     85%,
+     249px,
+     220px);
+ }
+
+ @media (min-width: 601px) {
+     @include annotationUIElement(110%,
+     90%,
+     329px,
+     300px);
+ }

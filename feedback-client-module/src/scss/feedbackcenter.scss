@@ -1,0 +1,274 @@
+ @mixin feedBackCenter($mainFontSize, $secondFontSize, $tablewidth, $firstcolumnwidth) {
+     #fm__basediv-feedback-center {
+         position: fixed;
+         top: 5px;
+         right: 5px;
+         font-size: $mainFontSize;
+         z-index: 2147483639 !important;
+
+         .fm__outerdiv {
+             /* chrome all.initial issue*/
+             display: block;
+             margin: 15px 10px;
+         }
+
+         .fm__mini_header {
+             cursor: pointer;
+             padding: 5px 10px;
+             display: block;
+             background-color: #DADADA; //border-radius: 5px; //  border: 2px solid rgb(110, 110, 110);
+             &.fm__invisible {
+                 display: none;
+             }
+         }
+
+         .fm__body {
+             /* chrome all.initial issue*/
+             display: block;
+             background-color: #DADADA;
+             border-radius: 5px;
+             border: 2px solid rgb(110, 110, 110);
+             padding: 5px 10px;
+             &.fm__invisible {
+                 display: none;
+             }
+         }
+
+         .fm__head {
+             /* chrome all.initial issue*/
+             display: block;
+             text-align: center;
+             margin: 12px auto;
+             text-decoration: underline;
+             font-weight: bold;
+         }
+
+         .fm__hide {
+             cursor: pointer;
+             position: absolute;
+             top: 11px;
+             right: 11px;
+             width: 0;
+             height: 0;
+             border-left: 9px solid transparent;
+             border-right: 9px solid transparent;
+             border-bottom: 9px solid rgb(150, 150, 150);
+         }
+
+         .fm__hide:hover {
+             top: 10px;
+             right: 10px;
+             border-left: 10px solid transparent;
+             border-right: 10px solid transparent;
+             border-bottom: 10px solid rgb(150, 150, 150);
+         }
+
+         .fm__back {
+             cursor: pointer;
+             position: absolute;
+             top: 11px;
+             left: 11px;
+             width: 0;
+             height: 0;
+             border-right: 9px solid rgb(150, 150, 150);
+             border-top: 9px solid transparent;
+             border-bottom: 9px solid transparent;
+             &.fm__invisible {
+                 display: none;
+             }
+         }
+
+         .fm__back:hover {
+             top: 10px;
+             left: 10px;
+             border-right: 10px solid rgb(150, 150, 150);
+             border-top: 10px solid transparent;
+             border-bottom: 10px solid transparent;
+         }
+
+         .fm__landing_area,
+         .fm__sending_area,
+         .fm__viewing_area,
+         .fm__comparison_area,
+         .fm__showalternative_areas {
+             &.fm__invisible {
+                 display: none;
+             }
+         }
+
+         .fm__landing_area {
+             padding: 20px;
+         }
+
+         .fm__landing_area_or_text {
+             text-align: center;
+             display: block;
+         }
+
+         .fm__select_ticketID {
+             margin: 10px auto;
+             display: block;
+         }
+
+         .fm__btn_show_sending_area,
+         .fm__btn_show_viewing_area,
+         .fm__btn_showalternatives,
+         .fm__btn_addAnnotation,
+         .fm__btn_sendselection,
+         .fm__btn_send,
+         .fm__btn_show,
+         .fm__btn_show_public,
+         .fm__btn_delete_ticket_from_storage {
+             margin: 10px auto;
+             display: block;
+             &.fm__invisible {
+                 display: none;
+             }
+         }
+
+         .fm__paymentInfos {
+             &.fm__invisible {
+                 display: none;
+             }
+         }
+
+         .fm__btn_show_public {
+             margin-top: 20px;
+         }
+
+         .fm__sendbtn_and_public_checkbox {
+             &.fm__invisible {
+                 display: none;
+             }
+         }
+
+         .fm__checkbox_ispublic_container {
+             margin: 10px auto;
+             display: block;
+             text-align: center;
+         }
+
+         .fm__txt_contactName,
+         .fm__txt_contactEmail,
+         .fm__txt_iotaAddress,
+         .fm__txt_ticketViewID {
+             width: 100%;
+             &.fm__invisible {
+                 display: none;
+             }
+         }
+
+         .fm__txt_contactEmail.fm__invalid,
+         .fm__txt_iotaAddress.fm__invalid {
+             background-color: pink;
+         }
+
+         .fm__email_invalid,
+         .fm__iotaAddress_invalid {
+             color: rgb(218, 56, 56);
+             text-align: center;
+
+             &.fm__invisible {
+                 display: none;
+             }
+         }
+
+         .fm__ticketStorageExists {
+             &.fm__invisible {
+                 display: none;
+             }
+         }
+
+         .fm__spinner {
+             &.fm__invisible {
+                 display: none;
+             }
+         }
+
+         .fm__horizontal_line {
+             display: block;
+             padding-top: 10px;
+             border-bottom: 1px solid #000;
+         }
+
+         .fm__table {
+             width: $tablewidth;
+             display: block;
+         }
+
+         .fm__table_firstcolumn {
+             display: table-cell;
+             vertical-align: middle;
+             font-weight: bold;
+             padding: 0.5rem;
+             width: $firstcolumnwidth;
+         }
+
+         .fm__table_secondcolumn {
+             display: table-cell;
+             vertical-align: middle;
+             padding: 0.4rem;
+             width: auto;
+         }
+
+         .fm__table_private_ticketinfos {
+             &.fm__invisible {
+                 display: none;
+             }
+         }
+
+         .fm__comparison_text {
+             display: block;
+             margin-top: 10px;
+             margin-bottom: 5px;
+             font-size: $secondFontSize;
+             text-align: center;
+         }
+
+         .fm__comparison_row {
+             display: block;
+             margin-top: 10px;
+             margin-bottom: 5px;
+         }
+         .fm__comparison_row:after {
+             content: "";
+             display: table;
+             clear: both;
+         }
+
+         .fm__comparison_row_firstline {
+             margin-top: 25px;
+             margin-bottom: 15px;
+         }
+
+         .fm__comparison_column {
+             font-size: $secondFontSize;
+             display: block;
+             float: left;
+             width: 50%;
+             text-align: center;
+         }
+
+         .fm__comparison_column_firstline {
+             font-weight: bold;
+             text-decoration: underline;
+         }
+
+         .fm__comparison_line_header {
+             display: block;
+             font-size: $secondFontSize;
+             text-align: center;
+             margin-top: 15px;
+             margin-bottom: -5px;
+             font-weight: bold;
+         }
+     }
+ }
+
+ @media (max-width: 600px) {
+     @include feedBackCenter(90%, 85%, 240px, 55px);
+ }
+
+ @media (min-width: 601px) {
+     @include feedBackCenter(120%, 100%, 330px, 80px);
+ }

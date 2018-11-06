@@ -1,0 +1,77 @@
+@mixin modal($mainFontSize, $secondFontSize) {
+
+    /* a modal dialog */
+    .fm__modalDialog {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 2147483648 !important;
+        -webkit-transition: opacity 400ms ease-in;
+        -moz-transition: opacity 400ms ease-in;
+        transition: opacity 400ms ease-in;
+        opacity: 1;
+        pointer-events: auto;
+
+        &.fm__invisible {
+            opacity: 0;
+            pointer-events: none;
+            display: none;
+        }
+
+        .fm__modalbody {
+            display: block;
+            font-size: $mainFontSize;
+            width: 21em;
+            position: relative;
+            margin: 20% auto;
+            padding: 10px;
+            border-radius: 5px;
+            background: #fff;
+            background: -moz-linear-gradient(#fff, #999);
+            background: -webkit-linear-gradient(#fff, #999);
+            background: -o-linear-gradient(#fff, #999);
+        }
+
+        .fm__modal_header {
+            display: block;
+            font-size: $mainFontSize;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .fm__modal_subheader {
+            font-size: $secondFontSize;
+            display: block;
+            text-align: center;
+            margin-top: 12px;
+            margin-bottom: 12px;
+        }
+
+        .fm__modal_text {
+            font-size: $mainFontSize;
+            margin-top: 5px;
+            padding-top: 10px;
+            padding-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &.fm__invisible {
+                display: none;
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    @include modal(80%, 70%);
+}
+
+@media (min-width: 601px) {
+    @include modal(120%, 90%);
+}

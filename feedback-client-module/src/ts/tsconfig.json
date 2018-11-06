@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "module": "ES2015",
+        "target": "ES5",
+        "noImplicitAny": false,
+        "rootDir": ".",
+        "outDir": "../js",
+        "sourceMap": true,
+        "removeComments": true
+    },
+    "compileOnSave": true,
+    "exclude": [
+        "node_modules"
+    ]
+}
