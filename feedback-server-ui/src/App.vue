@@ -47,7 +47,7 @@ export default {
   name: "home",
   mounted() {
     const connection = new HubConnectionBuilder()
-      .withUrl(config.BASE_URL + "/hubs/newfeedback")
+      .withUrl(config.WEB_API_HUB_URL)
       .build();
 
     connection.on("TicketAdded", message => {

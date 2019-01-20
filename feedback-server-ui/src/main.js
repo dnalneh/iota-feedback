@@ -12,8 +12,7 @@ const veeValidateconfig = {
   fieldsBagName: 'felder'
 };
 
-const API_SERVER_DOMAIN = config.BASE_URL + '/api/v1.0/'
-axios.defaults.baseURL = API_SERVER_DOMAIN;
+axios.defaults.baseURL = config.WEB_API_URL;
 axios.defaults.validateStatus = function (status) {
   return true; // never reject (==fire catch), no matter which status code
 };
