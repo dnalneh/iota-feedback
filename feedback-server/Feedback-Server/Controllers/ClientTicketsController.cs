@@ -15,7 +15,7 @@ using Microsoft.AspNetCore.SignalR;
 
 namespace FeedbackServer.Controllers
 {
-    [AllowAnonymous]
+    [AllowAnonymous]    
     [Route("api/v{version:apiVersion}/projects/{projectCode:Guid}/tickets")]
     public class ClientTicketsController : ExtendedController
     {

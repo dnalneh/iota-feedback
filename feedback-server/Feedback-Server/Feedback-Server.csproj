@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
     <RootNamespace>FeedbackServer</RootNamespace>
     <AssemblyName>FeedbackServer</AssemblyName>
     <UserSecretsId>3db46394-5caa-418b-8c66-aa1938dad338</UserSecretsId>
@@ -14,10 +14,10 @@
   <ItemGroup>
     <PackageReference Include="FluentEmail.Core" Version="2.5.1" />
     <PackageReference Include="FluentEmail.Mailgun" Version="2.5.3" />
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.5" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="2.3.0" />
-    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.0.4" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="3.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.2" />
   </ItemGroup>
 
   <ItemGroup>

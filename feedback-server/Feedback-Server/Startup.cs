@@ -31,14 +31,15 @@ namespace FeedbackServer
         {
             services.AddSignalR();
 
-            // Enable CORS - First part
+            // Define CORS
             services.AddCors(options =>
-            {
-                options.AddPolicy("AllowAll",
+            {              
+
+                options.AddPolicy("AllowAnyOrigin",
                     builder =>
                     {
                         builder
-                        .AllowAnyOrigin()
+                        .SetIsOriginAllowed((host) => true)
                         .AllowAnyMethod()
                         .AllowAnyHeader()
                         .AllowCredentials();
@@ -76,10 +77,10 @@ namespace FeedbackServer
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseAuthentication();
+            // Use CORS
+            app.UseCors("AllowAnyOrigin");
 
-            // Enable CORS - second part
-            app.UseCors("AllowAll");
+            app.UseAuthentication();           
 
             app.UseSignalR((options) => {
                 options.MapHub<NewFeedbackHub>("/hubs/newfeedback");
