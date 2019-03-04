@@ -13,7 +13,6 @@
     "axios": "^0.18.0",
     "bootstrap-vue": "^2.0.0-rc.13",
     "iota.lib.js": "^0.4.7",
-    "tslib": "^1.9.3",
     "ua-parser-js": "^0.7.19",
     "vee-validate": "^2.1.7",
     "vue": "^2.6.8",
