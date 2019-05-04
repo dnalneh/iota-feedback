@@ -147,9 +147,9 @@ export default {
 </script>
 
 <style lang="scss">
-@import url("https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css");
+@import "./../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "./../node_modules/bootstrap-vue/dist/bootstrap-vue.min.css";
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
-@import url("//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css");
 
 .aside_row {
   min-height: 100vh;
