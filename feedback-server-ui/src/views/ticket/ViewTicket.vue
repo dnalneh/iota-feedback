@@ -293,8 +293,8 @@ export default {
         ];
         this.iota.api.promoteTransaction(
           transaction,
-          10 /* depth must be high because of new tip selection algorithm */,
-          15,
+          4 /* depth must be max 4 */,
+          14,
           spamTransfer,
           params,
           (error, success) => {
@@ -322,8 +322,8 @@ export default {
       } else {
         this.iota.api.replayBundle(
           transaction,
-          10 /* depth must be high because of new tip selection algorithm */,
-          15,
+          4 /* depth must be max 4 */,
+          14,
           (error, success) => {
             this.showLoading = true;
             if (error) {

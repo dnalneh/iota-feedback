@@ -248,7 +248,7 @@ export default {
       const xhr = new XMLHttpRequest();
       xhr.open(
         "GET",
-        "https://min-api.cryptocompare.com/data/price?fsym=IOTA&tsyms=EUR",
+        "https://min-api.cryptocompare.com/data/price?fsym=MIOTA&tsyms=EUR",
         true
       );
       xhr.setRequestHeader("Content-Type", "application/json");
@@ -314,7 +314,7 @@ export default {
         this.iota.api.sendTransfer(
           this.user.iotaSeed,
           3,
-          15,
+          14,
           transfers,
           (error, bundle) => {
             if (error) {
