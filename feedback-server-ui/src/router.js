@@ -1,23 +1,23 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Callback from '@/views/Callback.vue'
-import Account from '@/components/account/Account.vue'
-import Welcome from '@/components/Welcome.vue'
-import Domains from '@/components/domain/Domains.vue'
-import CreateDomain from '@/components/domain/CreateDomain.vue'
+import Account from '@/views/account/Account.vue'
+import Welcome from '@/views/Welcome.vue'
+import Domains from '@/views/domain/Domains.vue'
+import CreateDomain from '@/views/domain/CreateDomain.vue'
 
-import Projects from '@/components/project/Projects.vue'
-import CreateProject from '@/components/project/CreateProject.vue'
-import EditProject from '@/components/project/EditProject.vue'
-import HowToIntegrateProject from '@/components/project/HowToIntegrateProject.vue'
+import Projects from '@/views/project/Projects.vue'
+import CreateProject from '@/views/project/CreateProject.vue'
+import EditProject from '@/views/project/EditProject.vue'
+import HowToIntegrateProject from '@/views/project/HowToIntegrateProject.vue'
 
-import Tickets from '@/components/ticket/Tickets.vue'
-import ViewTicket from '@/components/ticket/ViewTicket.vue'
-import PayOutTicket from '@/components/ticket/PayOutTicket.vue'
+import Tickets from '@/views/ticket/Tickets.vue'
+import ViewTicket from '@/views/ticket/ViewTicket.vue'
+import PayOutTicket from '@/views/ticket/PayOutTicket.vue'
 
-import AlternativeSelections from '@/components/alternativeselection/AlternativeSelections.vue'
-import ViewSelection from '@/components/alternativeselection/ViewSelection.vue'
-import PayOutSelection from '@/components/alternativeselection/PayOutSelection.vue'
+import AlternativeSelections from '@/views/alternativeselection/AlternativeSelections.vue'
+import ViewSelection from '@/views/alternativeselection/ViewSelection.vue'
+import PayOutSelection from '@/views/alternativeselection/PayOutSelection.vue'
 
 Vue.use(Router)
 

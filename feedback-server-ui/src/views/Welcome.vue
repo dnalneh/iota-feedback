@@ -14,8 +14,8 @@
             img-alt=""
             img-top>
         <p class="card-text float-left">
-          Our feedback tool allows you to easily discuss and improve your website design together with your collaborators or customers.
-          In order to use <b>this</b>, you first need to register your domain(s).
+          This feedback tool allows you to easily discuss and improve your website design together with your collaborators or customers.
+          In order to use it, you first need to register your domain(s).
         </p>
         <router-link :to="{name: 'createdomain' }" v-if="!showLoading" class="float-right m-3">
             <b-btn><i class="fa fa-plus mr-3"></i>New domain</b-btn>

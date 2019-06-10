@@ -1,16 +1,11 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
 import BootstrapVue from 'bootstrap-vue'
 import VeeValidate from 'vee-validate'
 import auth from '@/auth'
 import axios from 'axios'
 import config from './config'
-
-const veeValidateconfig = {
-  fieldsBagName: 'felder'
-};
 
 axios.defaults.baseURL = config.WEB_API_URL;
 axios.defaults.validateStatus = function (status) {
@@ -22,13 +17,14 @@ axios.defaults.headers.common["Authorization"] =
 
 Vue.prototype.$http = axios;
 Vue.use(BootstrapVue);
-Vue.use(VeeValidate, veeValidateconfig);
+Vue.use(VeeValidate, {
+  fieldsBagName: 'felder'
+});
 Vue.use(auth);
 
 Vue.config.productionTip = false
 
 window.app = new Vue({
   router,
-  store,
   render: h => h(App)
 }).$mount('#app')
