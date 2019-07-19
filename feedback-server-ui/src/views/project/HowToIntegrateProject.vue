@@ -39,7 +39,7 @@
       </pre>
 
       <span class="font-weight-bold">Please consider:</span> <br/>
-        You can adjust the part <i class="text-info px-1">locationOfCSSFile: "https://collabwebdesign.azurewebsites.net/fm__styles.css"</i> to point to your own CSS-file with your altered style. 
+        You can adjust the part <i class="text-info px-1">locationOfCSSFile: "https://collabwebdesign.henrik-hertel.de/fm__styles.css"</i> to point to your own CSS-file with your altered style. 
        
         <br />
         If you want to allow payment via IOTA-Token you have to save your seed in your <router-link :to="{name: 'account'}">account</router-link> options, else change <i class="text-info px-1">allowPayment</i> to <i class="text-info px-1">false</i>.
@@ -85,7 +85,7 @@ export default {
     insertHTMLForUsePredefined() {
       return (
         `
-  <script src="https://collabwebdesign.azurewebsites.net/feedback_client_module.js"><\/script>
+  <script src="https://collabwebdesign.henrik-hertel.de/feedback_client_module.js"><\/script>
   <script> 
     Feedback_Client_Module.activate(
       { 
@@ -93,7 +93,7 @@ export default {
         this.getProp_code +
         `", 
         modus: "UsePredefined", 
-        locationOfCSSFile: "https://collabwebdesign.azurewebsites.net/fm__styles.css",
+        locationOfCSSFile: "https://collabwebdesign.henrik-hertel.de/fm__styles.css",
         allowPayment: true
       });
   <\/script>`
@@ -102,7 +102,7 @@ export default {
     insertHTMLForUseExistingHTMLElement() {
       return (
         `
-  <script src="https://collabwebdesign.azurewebsites.net/feedback_client_module.js"><\/script>
+  <script src="https://collabwebdesign.henrik-hertel.de/feedback_client_module.js"><\/script>
   <script> 
     Feedback_Client_Module.activate(
       { 
@@ -111,7 +111,7 @@ export default {
         `", 
         modus: "UseExistingHTMLElement",
         targetElement: document.getElementById("myExistingDiv"),
-        locationOfCSSFile: "https://collabwebdesign.azurewebsites.net/fm__styles.css",
+        locationOfCSSFile: "https://collabwebdesign.henrik-hertel.de/fm__styles.css",
         allowPayment: true
       });
   <\/script>`
@@ -120,7 +120,7 @@ export default {
     insertHTMLForUseQueryParam() {
       return (
         `
-  <script src="https://collabwebdesign.azurewebsites.net/feedback_client_module.js"><\/script>
+  <script src="https://collabwebdesign.henrik-hertel.de/feedback_client_module.js"><\/script>
   <script> 
     Feedback_Client_Module.activate(
       { 
@@ -128,7 +128,7 @@ export default {
         this.getProp_code +
         `", 
         modus: "UseQueryParam", 
-        locationOfCSSFile: "https://collabwebdesign.azurewebsites.net/fm__styles.css",
+        locationOfCSSFile: "https://collabwebdesign.henrik-hertel.de/fm__styles.css",
         allowPayment: true
       });
   <\/script>`
