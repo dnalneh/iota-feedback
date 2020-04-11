@@ -51,7 +51,7 @@ namespace FeedbackServer.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ClientModulePostAlternativesSelection([FromRoute] Guid projectCode, [FromBody] AlternativesSelectionPostBase boundObject)
+        public async Task<IActionResult> ClientModulePostAlternativesSelection([FromRoute] Guid projectCode, [FromBody] AlternativesSelectionPostBase boundObject, ApiVersion version)
         {
             if (!ModelState.IsValid)
             {
@@ -141,7 +141,7 @@ namespace FeedbackServer.Controllers
                 }); // would be better to take an extra (temporary) identifier, that the client-side stores
             }
 
-            return CreatedAtAction(nameof(ClientModuleGetByViewID), new { viewGuid = selection.ViewGuid }, selection);
+            return CreatedAtAction(nameof(ClientModuleGetByViewID), new { projectCode, viewGuid = selection.ViewGuid, version = $"{version}" }, selection);
         }
     }
 }

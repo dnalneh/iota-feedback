@@ -156,7 +156,7 @@ namespace FeedbackServer.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> PostProject([FromRoute]int domainID, [FromBody] ProjectPostAndPutBase boundObject)
+        public async Task<IActionResult> PostProject([FromRoute]int domainID, [FromBody] ProjectPostAndPutBase boundObject, ApiVersion version)
         {
             if (!ModelState.IsValid)
             {
@@ -217,8 +217,7 @@ namespace FeedbackServer.Controllers
                 _context.Projects.Add(project);
                 await _context.SaveChangesAsync();
 
-                return CreatedAtAction(nameof(GetProject), new { id = project.Id }, project);
-
+                return CreatedAtAction(nameof(GetProject), new { domainID, id = project.Id, version = $"{version}" }, project);
             }
             catch (MissingAuthIdentifierException)
             {

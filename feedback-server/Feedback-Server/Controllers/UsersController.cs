@@ -144,7 +144,7 @@ namespace FeedbackServer.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateUser([FromBody] UserPostBase boundObject)
+        public async Task<IActionResult> CreateUser([FromBody] UserPostBase boundObject, ApiVersion version)
         {
             try
             {
@@ -167,7 +167,7 @@ namespace FeedbackServer.Controllers
                     _context.Users.Add(user);
                     await _context.SaveChangesAsync();
 
-                    return CreatedAtAction(nameof(GetUser), new { authIdentifier = user.AuthIdentifier }, user);
+                    return CreatedAtAction(nameof(GetUser), new { authIdentifier = user.AuthIdentifier, version = $"{version}" }, user);
                 }
                 else
                 {

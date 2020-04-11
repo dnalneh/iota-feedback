@@ -95,7 +95,7 @@ namespace FeedbackServer.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ClientModulePostTicket([FromRoute] Guid projectCode, [FromBody] TicketPostBase boundObject)
+        public async Task<IActionResult> ClientModulePostTicket([FromRoute] Guid projectCode, [FromBody] TicketPostBase boundObject, ApiVersion version)
         {
             if (!ModelState.IsValid)
             {
@@ -205,7 +205,7 @@ namespace FeedbackServer.Controllers
                 }); // would be better to take an extra (temporary) identifier, that the client-side stores
             }
 
-            return CreatedAtAction(nameof(ClientModuleGetByViewID), new { viewGuid = ticket.ViewGuid }, ticket);
+            return CreatedAtAction(nameof(ClientModuleGetByViewID), new { projectCode, viewGuid = ticket.ViewGuid, version = $"{version}" }, ticket);
         }
 
         [HttpPost]

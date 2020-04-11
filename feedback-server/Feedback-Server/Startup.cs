@@ -12,8 +12,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 using FeedbackServer.Hubs;
+using Microsoft.AspNetCore.Mvc;
 
 namespace FeedbackServer
 {
@@ -29,11 +30,9 @@ namespace FeedbackServer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSignalR();
-
             // Define CORS
             services.AddCors(options =>
-            {              
+            {
 
                 options.AddPolicy("AllowAnyOrigin",
                     builder =>
@@ -46,12 +45,17 @@ namespace FeedbackServer
                     });
             });
 
-            services.AddApiVersioning(o => {
+            services.AddApiVersioning(o =>
+            {
                 o.ReportApiVersions = true;
                 o.AssumeDefaultVersionWhenUnspecified = true;
                 o.DefaultApiVersion = new ApiVersion(1, 0);
             });
 
+            services.AddControllers().AddNewtonsoftJson();
+            services.AddSignalR();
+
+            services.AddAuthorization();
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -63,14 +67,12 @@ namespace FeedbackServer
                 options.Audience = Configuration["Auth0:ApiIdentifier"];
             });
 
-            services.AddMvc();
-
             services.AddDbContext<LocalDBContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DBConnectionString")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -80,13 +82,20 @@ namespace FeedbackServer
             // Use CORS
             app.UseCors("AllowAnyOrigin");
 
-            app.UseAuthentication();           
+            // Runs matching. An endpoint is selected and set on the HttpContext if a match is found.
+            app.UseRouting();
 
-            app.UseSignalR((options) => {
-                options.MapHub<NewFeedbackHub>("/hubs/newfeedback");
+            // Middleware that run after routing occurs. Usually the following appear here:
+            app.UseAuthentication();
+            app.UseAuthorization();
+
+            // Executes the endpoint that was selected by routing.
+            app.UseEndpoints(endpoints =>
+            {
+                // Mapping of endpoints goes here:
+                endpoints.MapControllers();
+                endpoints.MapHub<NewFeedbackHub>("/hubs/newfeedback");
             });
-
-            app.UseMvc();
         }
     }
 }
